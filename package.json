@@ -1,20 +1,25 @@
 {
-  "name": "That-One-Movie-About-Facebook",
-  "version": "1.0.1",
-  "description": "Mongoose back-end project - Main",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "start": "node index",
-    "dev": "nodemon index",
-    "seed": "node utils/seed",
-    "heroku-postbuild": "node utils/seed.js"
-  },
+  "name": "friendzoned",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
   "dependencies": {
-    "express": "^4.17.1",
-    "mongoose": "^6.0.13"
+    "express": "^4.17.3",
+    "mongoose": "^6.3.1"
   },
-  "devDependencies": {
-    "nodemon": "^2.0.9"
-  }
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SeanLee-17/That-One-Movie-About-Facebook.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SeanLee-17/That-One-Movie-About-Facebook/issues"
+  },
+  "homepage": "https://github.com/SeanLee-17/That-One-Movie-About-Facebook"
 }
