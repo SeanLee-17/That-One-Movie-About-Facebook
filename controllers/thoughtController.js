@@ -4,14 +4,12 @@ module.exports = {
   // Get all courses
   getThoughts(req, res) {
     Thought.find()
-      .populate("friends")
       .then((thought) => res.json(thought))
       .catch((err) => res.status(500).json(err));
   },
   // Get a course
   getSingleThought(req, res) {
     Thought.findOne({ _id: req.params.thoughtId })
-      .populate("friends")
       .select("-__v")
       .then((thought) =>
         !thought
@@ -57,11 +55,10 @@ module.exports = {
   addReaction(req, res) {
     Thought.findByIdAndUpdate(
       { _id: req.params.thoughtId },
-      { $push: { friends: req.params.friendsId } },
+      { $push: { reactions: req.body } },
       { new: true }
     )
       .select("-__v")
-      .populate("friends")
       .then((thought) =>
         !thought
           ? res.status(404).json({ message: "No thought with this id!" })
@@ -76,7 +73,7 @@ module.exports = {
   removeReaction(req, res) {
     Thought.findByIdAndUpdate(
       { _id: req.params.thoughtId },
-      { $pull: { friends: req.params.friendsId } },
+      { $pull: { reactions: req.params.reactionId } },
       { new: true }
     )
       .select("-__v")
